@@ -1,0 +1,11 @@
+:root{
+  --brand:#00a2e0;
+  --accent:#ffc554;
+  --bg:#fff;
+  font-family: Inter, sans-serif;
+}
+body{margin:0;background:var(--bg);color:#222;line-height:1.5;}
+.banner{background:var(--brand);color:#fff;padding:1.5rem;text-align:center;}
+h1,h2{margin:0.5rem 0;}
+section{padding:1rem 1.5rem;border-bottom:1px solid #eee;}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;}
