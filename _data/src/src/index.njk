@@ -1,0 +1,8 @@
+---
+layout: none
+---
+<ul>
+{% for l in manuals %}
+  <li><a href="/{{ l.slug }}/">{{ l.listing_name }}</a></li>
+{% endfor %}
+</ul>
