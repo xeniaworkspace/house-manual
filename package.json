@@ -4,7 +4,7 @@
   "scripts": { "build": "eleventy" },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "csvtojson": "^3.0.0",
+    "csvtojson": "2.0.10",
     "node-fetch": "^3.3.0"
   }
 }
