@@ -1,0 +1,47 @@
+---
+pagination:
+  data: manuals
+  size: 1
+  alias: listing
+permalink: "/{{ listing.slug }}/index.html"
+---
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ listing.listing_name }} – Manuale</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="banner">
+  <img src="/static/header.png" alt="">
+  <h1>{{ listing.listing_name }}</h1>
+  <p>{{ listing.address }}, {{ listing.city }}</p>
+</header>
+
+<section>
+  <h2>Come arrivare</h2>
+  <p>{{ listing.street_directions | safe }}</p>
+</section>
+
+{% if listing.wifi_name %}
+<section>
+  <h2>Wi-Fi</h2>
+  <p><strong>{{ listing.wifi_name }}</strong><br>{{ listing.wifi_password }}</p>
+</section>
+{% endif %}
+
+{% for appl in ['dishwasher','light'] %}
+  {% set instr = listing[appl + '_instructions'] %}
+  {% if instr %}
+  <section>
+    <h2>{{ appl | capitalize }}</h2>
+    <p>{{ instr | safe }}</p>
+    {% if listing[appl + '_video'] %}
+      <iframe src="{{ listing[appl + '_video'] }}" loading="lazy" allowfullscreen></iframe>
+    {% endif %}
+  </section>
+  {% endif %}
+{% endfor %}
+</body>
+</html>
